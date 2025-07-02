@@ -9,8 +9,9 @@ function Header() {
             <p id="user-name"></p>
 
             <div className="container-btns">
-                <button className="settings" id="settings"></button>
-                <button className="inbox" id="inbox"></button>
+                <img src='./assets/settings.svg' />
+                <button className="settings" id="settings" />
+                <button className="inbox" id="inbox" />
 
                 <button className="new-project" id="new_project">+ New Project</button>
             </div>

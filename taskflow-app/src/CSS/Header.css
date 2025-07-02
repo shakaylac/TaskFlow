@@ -31,6 +31,8 @@
     border: none;
     margin: 10px;
     border-radius: 10px;
+    border: 1.5px solid #CECECE;
+    background-color: #fff;
 }
 
 
