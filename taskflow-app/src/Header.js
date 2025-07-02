@@ -2,13 +2,16 @@ import './CSS/Header.css';
 
 function Header() {
     /* Code javascript here */
+
+    /* make a sign-in component to check and get user name. */
         let greeting = document.getElementById('greeting');
         let userName = document.getElementById('user-name');
+
+        userName.innerHTML = ", Kala!";
 
         const date = new Date();
         let currentHour = date.getHours();
 
-         
 
         if (currentHour >= 5 && currentHour < 12) {
             greeting.innerHTML = "Good Morning";
@@ -24,6 +27,10 @@ function Header() {
             greeting.style.fontFamily = 'Inter';
             greeting.style.color = '#686666';
             greeting.style.fontSize = '20px';
+
+            userName.style.fontFamily = 'Inter';
+            userName.style.color = '#686666';
+            userName.style.fontSize = '20px';
 
 
 
