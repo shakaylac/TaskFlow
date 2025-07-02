@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    background-color: #fff;
+    width: 720px;
+    height: 70px;
+    margin-top: 50px;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 4;
+}
