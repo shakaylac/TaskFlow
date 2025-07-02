@@ -6,7 +6,7 @@ function Container() {
         <>
         <Header />
 
-        <div className="lamp"></div>
+        <div className="teapot"></div>
         <div className="oval"></div>
         <div className="rec-1"></div>
         <div className="rec-2"></div>
