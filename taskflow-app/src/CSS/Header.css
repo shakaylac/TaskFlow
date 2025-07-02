@@ -1,10 +1,35 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('./Fonts/Inter-VariblesFont_opsz,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .header {
     display: flex;
+    align-items: center;
     background-color: #fff;
     width: 720px;
     height: 70px;
     margin-top: 50px;
-    border-radius: 15px;
+    border-radius: 10px;
     position: absolute;
     z-index: 4;
+}
+
+.settings, .inbox {
+    width: 35px;
+    height: 35px;
+    border: none;
+    margin: 10px;
+}
+
+.new-project {
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    background-image: linear-gradient(to right, #6265F7,#A24DEC);
+    color: #fff;
+    font-family: 'Inter';
 }
