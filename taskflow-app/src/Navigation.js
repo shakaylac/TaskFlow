@@ -1,6 +1,6 @@
-import './CSS/Calendar.css';
+import './CSS/Navigation.css';
 
-function Calendar() {
+function Navigation() {
     return(
         <section className='calendar-bkg'>
             <div className='calendar'>
@@ -13,4 +13,4 @@ function Calendar() {
     );
 };
 
-export default Calendar;
+export default Navigation;

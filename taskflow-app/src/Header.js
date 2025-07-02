@@ -1,6 +1,37 @@
 import './CSS/Header.css';
 
 function Header() {
+    /* Code javascript here */
+    let greeting = document.getElementById('greeting');
+    let userName = document.getElementById('user-name');
+
+    const date = new Date();
+    let currentHour = date.getHours();
+
+    if (currentHour >= 5 && currentHour < 12) {
+        greeting.textContent = "Good Morning!";
+        greeting.style.fontFamily = 'Inter';
+        greeting.style.color = '#686666';
+        greeting.style.fontSize = '20px';
+
+
+    } else if (currentHour >= 12 && currentHour < 18) {
+        greeting.innerHTML = "Good Afternoon!";
+         greeting.style.fontFamily = 'Inter';
+        greeting.style.color = '#686666';
+        greeting.style.fontSize = '20px';
+
+
+    } else if (currentHour >= 18 || currentHour < 5) {
+        greeting.innerHTML = "Good Evening!";
+         greeting.style.fontFamily = 'Inter';
+        greeting.style.color = '#686666';
+        greeting.style.fontSize = '20px';
+
+    };
+
+
+
     return(
         <>
         <header className="header">
@@ -9,7 +40,7 @@ function Header() {
             <p id="user-name"></p>
 
             <div className="container-btns">
-                <img src='./assets/settings.svg' />
+                <img className='settings-icon' src='logo.svg'></img>
                 <button className="settings" id="settings" />
                 <button className="inbox" id="inbox" />
 
