@@ -8,12 +8,32 @@
     z-index: 1;
 };
 
+.lamp {
+    width: 200px;
+    height: 200px;
+}
+
+.oval {
+    width: 650px;
+    height: 300px;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, #6265F7, #A24DEC);
+    position: absolute;
+    filter: blur(10px);
+    opacity: 5%;
+    margin-left: 50px;
+    margin-top: 210px;
+    z-index: 3;
+}
+
 .rec-1 {
     background-color:#A24DEC;
     width: 300px;
-    height: 100px;
-    filter: blur(8px);
+    height: 200px;
+    filter: blur(20px);
     position: absolute;
+    margin-left: 60px;
+    margin-top: 90px;
     z-index: 2;
 }
 
@@ -24,6 +44,17 @@
     filter: blur(20px);
     position: absolute;
     margin-left: 430px;
-    margin-top: 100px;
+    margin-top: 170px;
+    z-index: 2;
+}
+
+.rec-3 {
+    background-color:#A24DEC;
+    width: 300px;
+    height: 100px;
+    filter: blur(20px);
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 370px;
     z-index: 2;
 }
