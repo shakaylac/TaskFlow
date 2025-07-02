@@ -8,11 +8,12 @@ function Header() {
             <p id="greeting"></p>
             <p id="user-name"></p>
 
-            <button className="settings" id="settings"></button>
-            <button className="inbox" id="inbox"></button>
+            <div className="container-btns">
+                <button className="settings" id="settings"></button>
+                <button className="inbox" id="inbox"></button>
 
-            <button className="new-project" id="new_project">+ New Project</button>
-
+                <button className="new-project" id="new_project">+ New Project</button>
+            </div>
 
         </header>
         </>
