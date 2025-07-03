@@ -18,10 +18,20 @@
 }
 
 .calendar, .kanban, .project, .time-tracking {
+    display: flex;
+    align-items: center;
     height: 35px;
     border-radius: 10px;
     border: none;
     text-align: left;
     font-family: 'Inter';
     font-weight: 500;
+    font-size: 18px;
+    padding-bottom: 8px;
+}
+
+.today-icon, .tab-icon, .folder_filled-icon, .alarm-icon {
+    margin-right: 5px;
+    width: 23px;
+    height: 23px;
 }
