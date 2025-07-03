@@ -57,3 +57,13 @@
     height: 25px;
     }
 
+.new-project:hover {
+    background-color: #fff;
+    background-image: linear-gradient(to right, #6265F7,#A24DEC);
+    -webkit-background-clip: text; /* For WebKit browsers */
+    background-clip: text; /* Standard */
+    color: transparent;
+    box-shadow: none;
+    border: 1px solid #CECECE;
+}
+
