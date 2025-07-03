@@ -1,9 +1,9 @@
 .container {
     display: flex;
     background-image: linear-gradient(to right, #6265F7,#A24DEC);
-    margin-top: 30px;
+    margin-top: 20px;
     width: 750px;
-    height: 90vh;
+    height: 95vh;
     position: relative;
     z-index: 1;
 };

@@ -1,0 +1,27 @@
+
+.navigation-bkg {
+    background-color: #fff;
+    width: 720px;
+    height: 75vh;
+    margin-top: 110px;
+    margin-left: 15px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 4;
+}
+
+.nav-btns {
+    display: grid;
+    width: 680px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.calendar, .kanban, .project, .time-tracking {
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    text-align: left;
+    font-family: 'Inter';
+    font-weight: 500;
+}
