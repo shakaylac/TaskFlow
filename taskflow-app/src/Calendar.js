@@ -2,7 +2,7 @@ import './CSS/Calendar.css';
 
 function Calendar() {
     return(
-        <section className='container'>
+        <section className='calendar-com'>
 
         </section>
 
