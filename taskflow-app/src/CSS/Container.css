@@ -58,3 +58,82 @@
     margin-top: 370px;
     z-index: 2;
 }
+
+/* Header */
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    width: 720px;
+    height: 70px;
+    margin-left: 15px;
+    margin-top: 30px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 4;
+}
+
+.logo {
+    font-family: 'Inter';
+    background-image: linear-gradient(to right, #6265F7,#A24DEC);
+  -webkit-background-clip: text; /* For WebKit browsers */
+  background-clip: text; /* Standard */
+  color: transparent;
+  margin: 15px;
+}
+
+.container-btns {
+    margin-left: auto;
+}
+
+.settings, .inbox {
+    width: 35px;
+    height: 35px;
+    border: none;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1.5px solid #CECECE;
+    background-color: #fff;
+}
+
+
+.new-project {
+    padding: 5px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    margin: 15px;
+    background-image: linear-gradient(to right, #6265F7,#A24DEC);
+    color: #fff;
+    font-family: 'Inter';
+    font-size: 17px;
+    font-weight: bold;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+}
+
+.settings-icon, .mail-icon{
+    margin-left: -2px;
+    margin-top: 3px;
+    width: 25px;
+    height: 25px;
+    }
+
+.new-project:hover {
+    background-color: #fff;
+    background-image: linear-gradient(to right, #6265F7,#A24DEC);
+    -webkit-background-clip: text; /* For WebKit browsers */
+    background-clip: text; /* Standard */
+    color: transparent;
+    box-shadow: none;
+    border: 1px solid #CECECE;
+}
+
+.settings:hover {
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+}
+
+.inbox:hover {
+        box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+
+}

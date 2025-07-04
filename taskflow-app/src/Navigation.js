@@ -41,8 +41,8 @@ const timeTrackingBtn = {
                 <button className='project' style={{projectBtn, backgroundColor: '#fff', color: '#808080'}} onClick={() => setIsActive(!isActive)}><img src={folder_filled} className='folder_filled-icon'></img>Projects</button>
                 <button className='time-tracking' style={{timeTrackingBtn, backgroundColor: '#fff', color: '#808080'}} onClick={() => setIsActive(!isActive)}><img src={alarm} className='alarm-icon'></img>Time Tracking</button>
             </div>
-            
 
+            
         </section>
     
     );
