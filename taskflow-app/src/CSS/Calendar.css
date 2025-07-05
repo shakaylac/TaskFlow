@@ -1,9 +1,26 @@
 .calendar-com{
     width: 680px;
     height: 300px;
-    margin-top: 200px;
-    background-color: red;
+    margin-top: 250px;
+    margin-left: 37px;
+    background-color: #F4F3F5;
     position: absolute;
+    border-radius: 10px;
     z-index: 6;
 
+}
+
+.calendar-nav{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-left .arrow-right{
+    border: none;
+}
+
+.month{
+    margin: 20px;
 }
