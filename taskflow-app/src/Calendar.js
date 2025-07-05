@@ -5,23 +5,19 @@ import arrow_left from'./assets/arrow_left.svg';
 
 function Calendar() {
 
-    const [month, setMonth] = useState('June');
+    const [month, setMonth] = useState('');
 
     useEffect(() => {
-        const date = new Date;
+        const date = new Date();
         const currentmonth = date.getMonth();
 
         const monthNames = [
-            "Janurary", "Februray", "March", "April", "May", "June",
-            "July", "August", "September", "November", "Decemeber"
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
         ];
 
         const currentmonthName = monthNames[date.getMonth()];
-
-        if(currentmonthName === currentmonth) {
-            setMonth(currentmonthName);
-        };
-
+        setMonth(currentmonthName);
 
     }, []);
 
