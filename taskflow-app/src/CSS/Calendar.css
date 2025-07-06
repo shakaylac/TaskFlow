@@ -24,3 +24,17 @@
 .month{
     margin: 20px;
 }
+
+.previous-btn, .next-btn{
+    background-color: #F4F3F5;
+    border-radius: 6px;
+    border: none;
+}
+
+.previous-btn:hover{
+    background-color:#e7e7e7;
+}
+
+.next-btn:hover{
+    background-color:#e7e7e7;
+}

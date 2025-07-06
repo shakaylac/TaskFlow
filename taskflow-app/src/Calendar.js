@@ -9,7 +9,6 @@ function Calendar() {
 
     useEffect(() => {
         const date = new Date();
-        const currentmonth = date.getMonth();
 
         const monthNames = [
             "January", "February", "March", "April", "May", "June",
