@@ -38,3 +38,27 @@
 .next-btn:hover{
     background-color:#e7e7e7;
 }
+
+.calendar-body {
+    display: flex;
+    justify-content: center;
+    background-color: #e7e7e7;
+    position: absolute;
+    margin-top: 285px;
+    width: 105vw;
+    height: 48vh;
+}
+
+ol {
+    display: flex;
+    list-style-type: none;
+    margin-left: -50px;
+    margin-top: 5px;
+    gap: 70px;
+}
+
+li {
+    color: #696868;
+    font-family: Inter;
+    font-size: 16px;
+}
