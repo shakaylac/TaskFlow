@@ -1,8 +1,9 @@
 .calendar-com{
-    width: 635px;
-    height: 370px;
-    margin-top: 250px;
-    margin-left: 80px;
+    width: 580px;
+    height: 380px;
+    margin-top: 280px;
+    margin-left: 90px;
+    padding: 15px;
     background-color: #F4F3F5;
     position: absolute;
     border-radius: 10px;
@@ -39,18 +40,22 @@
     background-color:#e7e7e7;
 }
 
+.weekdays {
+    margin-left: -25px;
+}
+
 ol {
     display: flex;
     list-style-type: none;
-    margin-left: -10px;
     margin-top: 5px;
-    gap: 70px;
+    gap: 57px;
 }
 
 li {
     color: #696868;
     font-family: Inter;
     font-size: 16px;
+    width: 30px;
 }
 
 .days{
@@ -64,7 +69,7 @@ li {
 }
 
 .calendar-day {
-    height: 40px;
+    height: 45px;
     display: flex;
     align-items: start;
     justify-content: center;
@@ -72,6 +77,10 @@ li {
     font-size: 14px;
     margin: 2px;
    
+}
+
+.calendar-day:hover {
+    background-color: #e2e2e2;
 }
 
 .calendar-day.other {

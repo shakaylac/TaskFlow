@@ -3,8 +3,8 @@
     display: flex;
     background-image: linear-gradient(to right, #6265F7,#A24DEC);
     margin-top: 20px;
-    width: 750px;
-    height: 115vh;
+    width: 790px;
+    height: 120vh;
     padding-right: 50px;
     position: relative;
     z-index: 1;
@@ -45,7 +45,7 @@
     height: 200px;
     filter: blur(20px);
     position: absolute;
-    margin-left: 430px;
+    margin-left: 500px;
     margin-top: 170px;
     z-index: 2;
 }
@@ -56,7 +56,7 @@
     height: 100px;
     filter: blur(20px);
     position: absolute;
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: 370px;
     z-index: 2;
 }
@@ -143,7 +143,7 @@
 .navigation-bkg {
     background-color: #fff;
     width: 670px;
-    height: 95vh;
+    height: 102vh;
     margin-top: 110px;
     margin-left: 60px;
     border-radius: 10px;
@@ -153,15 +153,15 @@
 
 .nav-btns {
     display: grid;
-    width: 635px;
-    margin-left: 17px;
+    width: 610px;
+    margin-left: 28px;
     margin-top: 10px;
 }
 
 .calendar, .kanban, .project, .time-tracking {
     display: flex;
     align-items: center;
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
     border: none;
     text-align: left;
