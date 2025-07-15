@@ -1,11 +1,11 @@
-import './CSS/Container.css';
+import '../CSS/Container.css';
 import React, { useEffect, useState } from 'react';
-import settings from './assets/settings.png';
-import mail from './assets/mail.svg';
-import today from './assets/today.svg';
-import tab from './assets/tab.svg';
-import folder_filled from './assets/folder_filled.svg';
-import alarm from './assets/alarm.svg';
+import settings from '../assets/settings.png';
+import mail from '../assets/mail.svg';
+import today from '../assets/today.svg';
+import tab from '../assets/tab.svg';
+import folder_filled from '../assets/folder_filled.svg';
+import alarm from '../assets/alarm.svg';
 import Calendar from './Calendar';
 
 
@@ -29,6 +29,9 @@ function Container() {
     }, []);
 
     /* Navigation */
+
+
+
       const [isActive, setIsActive] = useState(false);
     const gradient = 'linear-gradient(to right, #6265F7,#A24DEC)';
     

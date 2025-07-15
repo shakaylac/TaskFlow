@@ -65,11 +65,11 @@ li {
 .calendar-body .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 15px;
 }
 
 .calendar-day {
-    height: 45px;
+    height: 58px;
+    width: 80px;
     display: flex;
     align-items: start;
     justify-content: center;

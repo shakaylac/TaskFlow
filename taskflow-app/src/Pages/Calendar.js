@@ -1,7 +1,7 @@
-import './CSS/Calendar.css';
+import '../CSS/Calendar.css';
 import React, { useEffect, useState } from 'react';
-import arrow_right from './assets/arrow_right.svg';
-import arrow_left from './assets/arrow_left.svg';
+import arrow_right from '../assets/arrow_right.svg';
+import arrow_left from '../assets/arrow_left.svg';
 
 function Calendar() {
   const [month, setMonth] = useState('');
