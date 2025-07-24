@@ -1,5 +1,6 @@
 import '../CSS/Container.css';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import settings from '../assets/settings.png';
 import mail from '../assets/mail.svg';
 import today from '../assets/today.svg';
@@ -80,7 +81,16 @@ function Container() {
 
          <section className='navigation-bkg'>
                     <div className='nav-btns'>
+                        <Link to="/calendar">       
                         <button className='calendar' style={{calendarBtn, backgroundImage: gradient, color: '#fff'}} onClick={() => setIsActive(!isActive)}><img src={today} className='today-icon'></img>Calendar</button>
+                        </Link>
+                        <Link to="/kanban">
+                            <button className='kanban' style={{kanbanBtn, backgroundColor: '#fff', color: '#808080'}} onClick={() => setIsActive(!isActive)}><img src={tab} className='tab-icon'></img>Kanban</button>
+                        </Link>
+                        <Link to="/projects">
+                            <button className='project' style={{projectBtn, backgroundColor: '#fff', color: '#808080'}} onClick={() => setIsActive(!isActive)}><img src={folder_filled} className='folder_filled-icon'></img>Projects</button>
+                        </Link>     
+                        
                         <button className='kanban' style={{kanbanBtn, backgroundColor: '#fff', color: '#808080'}} onClick={() => setIsActive(!isActive)}><img src={tab} className='tab-icon'></img>Kanban</button>
                         <button className='project' style={{projectBtn, backgroundColor: '#fff', color: '#808080'}} onClick={() => setIsActive(!isActive)}><img src={folder_filled} className='folder_filled-icon'></img>Projects</button>
                         <button className='time-tracking' style={{timeTrackingBtn, backgroundColor: '#fff', color: '#808080'}} onClick={() => setIsActive(!isActive)}><img src={alarm} className='alarm-icon'></img>Time Tracking</button>
