@@ -4,7 +4,7 @@
     background-image: linear-gradient(to right, #6265F7,#A24DEC);
     margin-top: 20px;
     width: 790px;
-    height: 120vh;
+    height: 128vh;
     padding-right: 50px;
     position: relative;
     z-index: 1;
@@ -68,7 +68,7 @@
     background-color: #fff;
     width: 670px;
     height: 70px;
-    margin-left: 60px;
+    margin-left: 85px;
     margin-top: 30px;
     border-radius: 10px;
     position: absolute;
@@ -143,9 +143,9 @@
 .navigation-bkg {
     background-color: #fff;
     width: 670px;
-    height: 102vh;
+    height: 108vh;
     margin-top: 110px;
-    margin-left: 60px;
+    margin-left: 85px;
     border-radius: 10px;
     position: absolute;
     z-index: 4;
