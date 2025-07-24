@@ -1,4 +1,4 @@
-import '/../CSS/Kanban.css';
+import '../CSS/Kanban.css';
 
 function Kanban() {
     return(
