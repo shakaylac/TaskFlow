@@ -80,7 +80,7 @@ function App() {
           <div className='nav-btns'>
             <Link to="/calendar">
               <button  onClick={() => switchView('calendar')}
-          className={activeView === 'calendar' ? 'active' : ''}><img src={today} className='today-icon' alt="calendar"  />Calendar</button>
+          className={activeView === 'calendar' ? 'active' : ''} ><img src={today} className='today-icon' alt="calendar" />Calendar</button>
             </Link>
             <Link to="/kanban">
               <button onClick={() => switchView('kanban')}
@@ -90,8 +90,10 @@ function App() {
               <button onClick={() => switchView('projects')}
           className={activeView === 'projects' ? 'active' : ''} ><img src={folder_filled} className='folder_filled-icon' alt="projects" />Projects</button>
             </Link>
+            <Link to="/timetracking">
             <button onClick={() => switchView('timetracking')}
-          className={activeView === 'timetracking' ? 'active' : ''} ><img src={alarm} className='alarm-icon' alt="time-tracking" />Time Tracking</button>
+          className={activeView === 'timetracking' ? 'active' : ''} ><img src={alarm} className='alarm-icon' alt="timetracking" />Time Tracking</button>
+            </Link>
           </div>
         </section>
 
@@ -106,7 +108,7 @@ function App() {
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/kanban" element={<Kanban />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/time-tracking" element={<TimeTracking />} />
+          <Route path="/timetracking" element={<TimeTracking />} />
         </Routes>
       </div>
     </Router>
