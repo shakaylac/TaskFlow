@@ -33,18 +33,20 @@ function App() {
 
   /* Navigation */
 
-  const gradient = 'linear-gradient(to right, #6265F7,#A24DEC)';
-  const getButtonStyle = (view) => ({
-    backgroundColor: activeView === view ? gradient : 'white',
-    color: activeView === view ? 'white' : '#808080'
-  });
-
       const [ activeView, setActiveView ] = useState('calendar');
 
        // Function to switch between views
       const switchView = (viewName) => {
         setActiveView(viewName);
       };
+
+  /* Navigation Button Styles */
+       const gradient = 'linear-gradient(to right, #6265F7, #A24DEC)';
+  const getButtonStyle = (view) => (
+    activeView === view
+      ? { background: gradient, color: 'white' }
+      : { background: 'white', color: '#808080' }
+     );
 
   return (
     <Router>
