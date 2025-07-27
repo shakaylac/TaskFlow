@@ -32,29 +32,12 @@ function App() {
   }, []);
 
   /* Navigation */
-        const [isActive, setIsActive] = useState(false);
-      const gradient = 'linear-gradient(to right, #6265F7,#A24DEC)';
-      
-      const calendarBtn = {
-          backgroundColor: isActive ? gradient : 'white',
-          color: '#808080'
-      
-      }
-      
-      const kanbanBtn = {
-          backgroundColor: isActive ? 'white' : gradient,
-          color: '#fff'
-      }
-      
-      const projectBtn = {
-          backgroundColor: isActive ? 'white' : gradient,
-          color: '#fff'
-      }
-      
-      const timeTrackingBtn = {
-          backgroundColor: isActive ? 'white' : gradient,
-          color: '#fff'
-      }
+
+  const gradient = 'linear-gradient(to right, #6265F7,#A24DEC)';
+  const getButtonStyle = (view) => ({
+    backgroundColor: activeView === view ? gradient : 'white',
+    color: activeView === view ? 'white' : '#808080'
+  });
 
       const [ activeView, setActiveView ] = useState('calendar');
 
@@ -80,19 +63,19 @@ function App() {
           <div className='nav-btns'>
             <Link to="/calendar">
               <button  onClick={() => switchView('calendar')}
-          className={activeView === 'calendar' ? 'active' : ''} ><img src={today} className='today-icon' alt="calendar" />Calendar</button>
+          className={activeView === 'calendar' ? 'active' : ''} style={getButtonStyle('calendar')}><img src={today} className='today-icon' alt="calendar" />Calendar</button>
             </Link>
             <Link to="/kanban">
               <button onClick={() => switchView('kanban')}
-          className={activeView === 'kanban' ? 'active' : ''} ><img src={tab} className='tab-icon' alt="kanban" />Kanban</button>
+          className={activeView === 'kanban' ? 'active' : ''} style={getButtonStyle('kanban')} ><img src={tab} className='tab-icon' alt="kanban" />Kanban</button>
             </Link>
             <Link to="/projects">
               <button onClick={() => switchView('projects')}
-          className={activeView === 'projects' ? 'active' : ''} ><img src={folder_filled} className='folder_filled-icon' alt="projects" />Projects</button>
+          className={activeView === 'projects' ? 'active' : ''} style={getButtonStyle('projects')}><img src={folder_filled} className='folder_filled-icon' alt="projects" />Projects</button>
             </Link>
             <Link to="/timetracking">
             <button onClick={() => switchView('timetracking')}
-          className={activeView === 'timetracking' ? 'active' : ''} ><img src={alarm} className='alarm-icon' alt="timetracking" />Time Tracking</button>
+          className={activeView === 'timetracking' ? 'active' : ''} style={getButtonStyle('timetracking')}><img src={alarm} className='alarm-icon' alt="timetracking" />Time Tracking</button>
             </Link>
           </div>
         </section>

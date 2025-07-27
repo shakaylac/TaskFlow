@@ -149,22 +149,14 @@
     margin-right: 5px;
     width: 23px;
     height: 23px;
+    
 }
 
-.kanban:hover {
-    border: 1px solid #CECECE;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+.calendar:hover, .kanban:hover, .project:hover, .time-tracking:hover {
+    background-color: #F4F3F5;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
 }
 
-.project:hover {
-    border: 1px solid #CECECE;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-}
-
-.time-tracking:hover {
-    border: 1px solid #CECECE;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-}
 
 /* Container */
 .container {
