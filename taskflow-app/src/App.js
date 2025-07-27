@@ -3,10 +3,9 @@
 import './CSS/App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Container from './Pages/Container.js';
 import Calendar from './Pages/Calendar.js';
 import Kanban from './Pages/Kanban.js';
-import TimeTracking from './Pages/Time-tracking.js'; 
+import TimeTracking from './Pages/TimeTracking.js'; 
 import Projects from './Pages/Projects.js';
 import settings from './assets/settings.png';
 import mail from './assets/mail.svg';
@@ -95,12 +94,19 @@ function App() {
           className={activeView === 'timetracking' ? 'active' : ''} ><img src={alarm} className='alarm-icon' alt="time-tracking" />Time Tracking</button>
           </div>
         </section>
+
+        <div className="teapot"></div>
+        <div className="oval"></div>
+        <div className="rec-1"></div>
+        <div className="rec-2"></div>
+        <div className="rec-3"></div>
+        <div className="container"></div>
+
         <Routes>
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/kanban" element={<Kanban />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/time-tracking" element={<TimeTracking />} />
-          <Route path="/" element={<Container />} />
         </Routes>
       </div>
     </Router>

@@ -1,5 +1,5 @@
-.kanban-container {
-   width: 580px;
+ .projects-container {
+    width: 580px;
     height: 380px;
     margin-left: 115px;
     top: 290px;
@@ -8,4 +8,5 @@
     position: absolute;
     border-radius: 10px;
     z-index: 6;
-}
+
+ }
