@@ -16,6 +16,7 @@ import folder_filled from './assets/folder_filled.svg';
 import alarm from './assets/alarm.svg';
 
 function App() {
+  /* Header */
   const [greeting, setGreeting] = useState('');
   const [userName, setUserName] = useState(', Kala!');
 
@@ -30,6 +31,38 @@ function App() {
       setGreeting('Good Evening');
     }
   }, []);
+
+  /* Navigation */
+        const [isActive, setIsActive] = useState(false);
+      const gradient = 'linear-gradient(to right, #6265F7,#A24DEC)';
+      
+      const calendarBtn = {
+          backgroundColor: isActive ? gradient : 'white',
+          color: '#808080'
+      
+      }
+      
+      const kanbanBtn = {
+          backgroundColor: isActive ? 'white' : gradient,
+          color: '#fff'
+      }
+      
+      const projectBtn = {
+          backgroundColor: isActive ? 'white' : gradient,
+          color: '#fff'
+      }
+      
+      const timeTrackingBtn = {
+          backgroundColor: isActive ? 'white' : gradient,
+          color: '#fff'
+      }
+
+      const [ activeView, setActiveView ] = useState('calendar');
+
+       // Function to switch between views
+      const switchView = (viewName) => {
+        setActiveView(viewName);
+      };
 
   return (
     <Router>
@@ -47,15 +80,19 @@ function App() {
         <section className='navigation-bkg'>
           <div className='nav-btns'>
             <Link to="/calendar">
-              <button className='calendar'><img src={today} className='today-icon' alt="calendar" />Calendar</button>
+              <button  onClick={() => switchView('calendar')}
+          className={activeView === 'calendar' ? 'active' : ''}><img src={today} className='today-icon' alt="calendar"  />Calendar</button>
             </Link>
             <Link to="/kanban">
-              <button className='kanban'><img src={tab} className='tab-icon' alt="kanban" />Kanban</button>
+              <button onClick={() => switchView('kanban')}
+          className={activeView === 'kanban' ? 'active' : ''} ><img src={tab} className='tab-icon' alt="kanban" />Kanban</button>
             </Link>
             <Link to="/projects">
-              <button className='project'><img src={folder_filled} className='folder_filled-icon' alt="projects" />Projects</button>
+              <button onClick={() => switchView('projects')}
+          className={activeView === 'projects' ? 'active' : ''} ><img src={folder_filled} className='folder_filled-icon' alt="projects" />Projects</button>
             </Link>
-            <button className='time-tracking'><img src={alarm} className='alarm-icon' alt="time-tracking" />Time Tracking</button>
+            <button onClick={() => switchView('timetracking')}
+          className={activeView === 'timetracking' ? 'active' : ''} ><img src={alarm} className='alarm-icon' alt="time-tracking" />Time Tracking</button>
           </div>
         </section>
         <Routes>

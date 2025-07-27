@@ -114,3 +114,57 @@
         box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
 
 }
+
+/* Navgivation */
+.navigation-bkg {
+    background-color: #fff;
+    width: 670px;
+    height: 108vh;
+    margin-top: 110px;
+    margin-left: 85px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 4;
+}
+
+.nav-btns {
+    display: grid;
+    width: 610px;
+    margin-left: 28px;
+    margin-top: 10px;
+}
+
+.calendar, .kanban, .project, .time-tracking {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    text-align: left;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    padding-top: 2px;
+}
+
+.today-icon, .tab-icon, .folder_filled-icon, .alarm-icon {
+    margin-right: 5px;
+    width: 23px;
+    height: 23px;
+}
+
+.kanban:hover {
+    border: 1px solid #CECECE;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+.project:hover {
+    border: 1px solid #CECECE;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+.time-tracking:hover {
+    border: 1px solid #CECECE;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+

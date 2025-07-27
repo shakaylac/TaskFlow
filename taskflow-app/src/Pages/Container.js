@@ -1,18 +1,22 @@
 import '../CSS/Container.css';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import settings from '../assets/settings.png';
+import mail from '../assets/mail.svg';
+import today from '../assets/today.svg';
+import tab from '../assets/tab.svg';
+import folder_filled from '../assets/folder_filled.svg';
+import alarm from '../assets/alarm.svg';
 import Calendar from './Calendar';
 
 
 function Container() {
    
 
-   
+
     return(
-       <>
-         
-                <Calendar />
+        <>
+       
 
         <div className="teapot"></div>
         <div className="oval"></div>
