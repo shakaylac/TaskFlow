@@ -41,8 +41,7 @@
 
 .todo-header {
     padding-right: 90px;
-    display: flex;
-    flex-direction: column;
+   ;
 }
 
 .in-progress-header {

@@ -12,24 +12,24 @@ function Kanban() {
     ]);
 
     const [ inProgressCards, setInProgressCards ] = useState([
-        { id: 1, title: 'Task 1', color: 'red' },
-        { id: 2, title: 'Task 2', color: 'orange' },
-        { id: 3, title: 'Task 3', color: 'green' }
+        { id: 5, title: 'Task 1', color: 'red' },
+        { id: 6, title: 'Task 2', color: 'orange' },
+        { id: 7, title: 'Task 3', color: 'green' }
     ]);
 
     const [ reviewCards, setReviewCards ] = useState([
-        { id: 1, title: 'Task 1', color: 'orange' },
-        { id: 2, title: 'Task 2', color: 'green' }
+        { id: 8, title: 'Task 1', color: 'orange' },
+        { id: 9, title: 'Task 2', color: 'green' }
     ]);
 
     const [ completeCards, setCompleteCards ] = useState([
-        { id: 1, title: 'Task 1', color: 'blue' },
-        { id: 2, title: 'Task 2', color: 'blue' },
-        { id: 3, title: 'Task 3', color: 'blue' },
-        { id: 4, title: 'Task 4', color: 'blue' },
-        { id: 5, title: 'Task 5', color: 'blue' },
-        { id: 6, title: 'Task 6', color: 'blue' },
-        { id: 7, title: 'Task 7', color: 'blue' }
+        { id: 10, title: 'Task 1', color: 'blue' },
+        { id: 11, title: 'Task 2', color: 'blue' },
+        { id: 12, title: 'Task 3', color: 'blue' },
+        { id: 13, title: 'Task 4', color: 'blue' },
+        { id: 14, title: 'Task 5', color: 'blue' },
+        { id: 15, title: 'Task 6', color: 'blue' },
+        { id: 16, title: 'Task 7', color: 'blue' }
     ]);
 
     const [ dragCard, setDragCard ] = useState(null);   
@@ -44,15 +44,27 @@ function Kanban() {
             switch (column) {
                 case 'todo':
                     setTodoCards([...todoCards, dragCard]);
+                    setInProgressCards(inProgressCards.filter(card => card.id !== dragCard.id));
+                    setReviewCards(reviewCards.filter(card => card.id !== dragCard.id));
+                    setCompleteCards(completeCards.filter(card => card.id !== dragCard.id));
                     break;
                 case 'inProgress':
                     setInProgressCards([...inProgressCards, dragCard]);
+                    setTodoCards(todoCards.filter(card => card.id !== dragCard.id));
+                    setReviewCards(reviewCards.filter(card => card.id !== dragCard.id));
+                    setCompleteCards(completeCards.filter(card => card.id !== dragCard.id));
                     break;
                 case 'review':
                     setReviewCards([...reviewCards, dragCard]);
+                    setTodoCards(todoCards.filter(card => card.id !== dragCard.id));
+                    setInProgressCards(inProgressCards.filter(card => card.id !== dragCard.id));
+                    setCompleteCards(completeCards.filter(card => card.id !== dragCard.id));
                     break;
                 case 'complete':
                     setCompleteCards([...completeCards, dragCard]);
+                    setTodoCards(todoCards.filter(card => card.id !== dragCard.id));
+                    setInProgressCards(inProgressCards.filter(card => card.id !== dragCard.id));
+                    setReviewCards(reviewCards.filter(card => card.id !== dragCard.id));
                     break;
                 default:
                     break;
@@ -64,7 +76,10 @@ function Kanban() {
     const handleDragOver = (e) => {
         e.preventDefault();
         e.dataTransfer.dropEffect = 'move';
-    };
+    }
+  
+
+
     const handleNewCardChange = (e) => {
         setNewCard(e.target.value);
     };
@@ -105,7 +120,10 @@ function Kanban() {
                                     draggable
                                     onDragStart={(e) => handleDragStart(e, card)}
                                     onDragOver={handleDragOver}
-                                    onDrop={(e) => handleDrop(e, 'todo')}>
+                                    onDrop={(e) => handleDrop(e, 'todo')}
+                                    onHandleNewCardChange={handleNewCardChange}
+                                    onHandleAddCard={() => handleAddCard('todo')}>
+                                    
                                     {card.title}
                                 </div>
                             ))}
@@ -123,7 +141,10 @@ function Kanban() {
                                      draggable
                                     onDragStart={(e) => handleDragStart(e, card)}
                                     onDragOver={handleDragOver}
-                                    onDrop={(e) => handleDrop(e, 'in-progress')}>
+                                    onDrop={(e) => handleDrop(e, 'in-progress')}
+                                    onHandleNewCardChange={handleNewCardChange}
+                                    onHandleAddCard={() => handleAddCard('todo')}>
+                                    
                                     {card.title}
                                 </div>
                             ))}
@@ -140,7 +161,9 @@ function Kanban() {
                                      draggable
                                     onDragStart={(e) => handleDragStart(e, card)}
                                     onDragOver={handleDragOver}
-                                    onDrop={(e) => handleDrop(e, 'review')}>
+                                    onDrop={(e) => handleDrop(e, 'review')}
+                                    onHandleNewCardChange={handleNewCardChange}
+                                    onHandleAddCard={() => handleAddCard('todo')}>
                                     {card.title}
                                 </div>
                             ))}
@@ -157,7 +180,9 @@ function Kanban() {
                                      draggable
                                     onDragStart={(e) => handleDragStart(e, card)}
                                     onDragOver={handleDragOver}
-                                    onDrop={(e) => handleDrop(e, 'complete')}>
+                                    onDrop={(e) => handleDrop(e, 'complete')}
+                                    onHandleNewCardChange={handleNewCardChange}
+                                    onHandleAddCard={() => handleAddCard('todo')}>
                                     {card.title}
                                 </div>
                             ))}
