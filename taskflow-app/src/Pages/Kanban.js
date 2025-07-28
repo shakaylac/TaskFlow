@@ -32,6 +32,66 @@ function Kanban() {
         { id: 7, title: 'Task 7', color: 'blue' }
     ]);
 
+    const [ dragCard, setDragCard ] = useState(null);   
+    const handleDragStart = (e, card) => {
+        setDragCard(card);
+        e.dataTransfer.effectAllowed = 'move';
+    };
+
+    const handleDrop = (e, column) => {
+        e.preventDefault();
+        if (dragCard) {
+            switch (column) {
+                case 'todo':
+                    setTodoCards([...todoCards, dragCard]);
+                    break;
+                case 'inProgress':
+                    setInProgressCards([...inProgressCards, dragCard]);
+                    break;
+                case 'review':
+                    setReviewCards([...reviewCards, dragCard]);
+                    break;
+                case 'complete':
+                    setCompleteCards([...completeCards, dragCard]);
+                    break;
+                default:
+                    break;
+            }
+            setDragCard(null);
+        }
+    }
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+    };
+    const handleNewCardChange = (e) => {
+        setNewCard(e.target.value);
+    };
+    const handleAddCard = (column) => {
+        if (newCard.trim() === '') return;
+
+        const newCardObj = { id: Date.now(), title: newCard, color: 'green' };
+        switch (column) {
+            case 'todo':
+                setTodoCards([...todoCards, newCardObj]);
+                break;
+            case 'inProgress':
+                setInProgressCards([...inProgressCards, newCardObj]);
+                break;
+            case 'review':
+                setReviewCards([...reviewCards, newCardObj]);
+                break;
+            case 'complete':
+                setCompleteCards([...completeCards, newCardObj]);
+                break;
+            default:
+                break;
+        }
+        setNewCard('');
+    };
+
+            
 
     return(
         <div className="kanban-container">
@@ -41,7 +101,11 @@ function Kanban() {
                         <div className="todo-cards">
                             {todoCards.map(card => (
                                 <div key={card.id} className={`card ${card.color}-card`}
-                                    style={{ borderLeft: `5px solid ${card.color}` }}>
+                                    style={{ borderLeft: `5px solid ${card.color}` }}
+                                    draggable
+                                    onDragStart={(e) => handleDragStart(e, card)}
+                                    onDragOver={handleDragOver}
+                                    onDrop={(e) => handleDrop(e, 'todo')}>
                                     {card.title}
                                 </div>
                             ))}
@@ -55,7 +119,11 @@ function Kanban() {
                         <div className="in-progress-cards">
                             {inProgressCards.map(card => (
                                 <div key={card.id} className={`card ${card.color}-card`}
-                                    style={{ borderLeft: `5px solid ${card.color}` }}>
+                                    style={{ borderLeft: `5px solid ${card.color}` }}
+                                     draggable
+                                    onDragStart={(e) => handleDragStart(e, card)}
+                                    onDragOver={handleDragOver}
+                                    onDrop={(e) => handleDrop(e, 'in-progress')}>
                                     {card.title}
                                 </div>
                             ))}
@@ -68,7 +136,11 @@ function Kanban() {
                         <div className="review-cards">
                              {reviewCards.map(card => (
                                 <div key={card.id} className={`card ${card.color}-card`}
-                                    style={{ borderLeft: `5px solid ${card.color}` }}>
+                                    style={{ borderLeft: `5px solid ${card.color}` }}
+                                     draggable
+                                    onDragStart={(e) => handleDragStart(e, card)}
+                                    onDragOver={handleDragOver}
+                                    onDrop={(e) => handleDrop(e, 'review')}>
                                     {card.title}
                                 </div>
                             ))}
@@ -81,7 +153,11 @@ function Kanban() {
                         <div className="complete-cards">
                              {completeCards.map(card => (
                                 <div key={card.id} className={`card ${card.color}-card`}
-                                    style={{ borderLeft: `5px solid ${card.color}` }}>
+                                    style={{ borderLeft: `5px solid ${card.color}` }}
+                                     draggable
+                                    onDragStart={(e) => handleDragStart(e, card)}
+                                    onDragOver={handleDragOver}
+                                    onDrop={(e) => handleDrop(e, 'complete')}>
                                     {card.title}
                                 </div>
                             ))}
