@@ -44,8 +44,8 @@ function App() {
        const gradient = 'linear-gradient(to right, #6265F7, #A24DEC)';
   const getButtonStyle = (view) => (
     activeView === view
-      ? { background: gradient, color: 'white' }
-      : { background: 'white', color: '#808080' }
+      ? { background: gradient, color: 'white', fontWeight: 'bold', fontFamily: 'Inter', width: '610px', height: '42px', border: 'none' }
+      : { background: 'white', color: '#808080', fontFamily: 'Inter', width: '610px', height: '42px', border: 'solid 1.5px #CECECE' }
      );
 
   return (

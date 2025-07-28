@@ -2,10 +2,45 @@
    width: 580px;
     height: 380px;
     margin-left: 115px;
-    top: 290px;
+    top: 310px;
     padding: 15px;
     background-color: #F4F3F5;
     position: absolute;
     border-radius: 10px;
     z-index: 6;
+}
+
+.kanban-headers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #808080;
+    text-align: left;
+
+
+}
+
+.todo-header,
+.in-progress-header,    
+.review-header,
+.complete-header {
+   border-bottom: #808080 solid 1.5px;
+   padding-bottom: 10px;
+   font-family: 'Inter';
+}
+
+.todo-header {
+    padding-right: 80px;
+}
+
+.in-progress-header {
+    padding-right: 70px;
+}
+
+.review-header {
+    padding-right: 80px;
+}
+
+.complete-header {
+    padding-right: 70px;
 }
