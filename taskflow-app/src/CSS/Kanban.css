@@ -7,6 +7,7 @@
     background-color: #F4F3F5;
     position: absolute;
     border-radius: 10px;
+    overflow: hidden;
     z-index: 6;
 }
 
@@ -29,13 +30,20 @@
    font-family: 'Inter';
 }
 
+.todo-cards, 
+.in-progress-cards, 
+.review-cards,
+.complete-cards {
+    overflow: scroll;
+    height: 320px;
+}
+
+
 .todo-header {
     padding-right: 90px;
     display: flex;
     flex-direction: column;
 }
-
-
 
 .in-progress-header {
     padding-right: 70px;
@@ -43,10 +51,12 @@
 
 .review-header {
     padding-right: 80px;
+
 }
 
 .complete-header {
     padding-right: 70px;
+
 }
 
 .red-card {
