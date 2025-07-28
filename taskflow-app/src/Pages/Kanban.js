@@ -8,18 +8,18 @@ function Kanban() {
         { id: 1, title: 'Task 1', color: 'red' },
         { id: 2, title: 'Task 2', color: 'orange' },
         { id: 3, title: 'Task 3', color: 'green' },
-        { id: 4, title: 'Task 4', color: 'orange' }
+        { id: 4, title: 'Task 4', color: 'orange' },
     ]);
 
     const [ inProgressCards, setInProgressCards ] = useState([
         { id: 5, title: 'Task 1', color: 'red' },
         { id: 6, title: 'Task 2', color: 'orange' },
-        { id: 7, title: 'Task 3', color: 'green' }
+        { id: 7, title: 'Task 3', color: 'green' },
     ]);
 
     const [ reviewCards, setReviewCards ] = useState([
         { id: 8, title: 'Task 1', color: 'orange' },
-        { id: 9, title: 'Task 2', color: 'green' }
+        { id: 9, title: 'Task 2', color: 'green' },
     ]);
 
     const [ completeCards, setCompleteCards ] = useState([
@@ -29,7 +29,7 @@ function Kanban() {
         { id: 13, title: 'Task 4', color: 'blue' },
         { id: 14, title: 'Task 5', color: 'blue' },
         { id: 15, title: 'Task 6', color: 'blue' },
-        { id: 16, title: 'Task 7', color: 'blue' }
+        { id: 16, title: 'Task 7', color: 'blue' },
     ]);
 
     const [ dragCard, setDragCard ] = useState(null);   
@@ -113,52 +113,57 @@ function Kanban() {
             <div className="kanban-headers">
                      <div className="todo-column">
                         <h5 className="todo-header">To Do</h5>
-                        <div className="todo-cards">
+                            <div className="todo-cards"
+                            onDragOver={handleDragOver}
+                            onDrop={(e) => handleDrop(e, 'todo')}
+                            >
                             {todoCards.map(card => (
-                                <div key={card.id} className={`card ${card.color}-card`}
-                                    style={{ borderLeft: `5px solid ${card.color}` }}
-                                    draggable
-                                    onDragStart={(e) => handleDragStart(e, card)}
-                                    onDragOver={handleDragOver}
-                                    onDrop={(e) => handleDrop(e, 'todo')}
-                                    onHandleNewCardChange={handleNewCardChange}
-                                    onHandleAddCard={() => handleAddCard('todo')}>
-                                    
-                                    {card.title}
+                                <div
+                                key={card.id}
+                                className={`card ${card.color}-card`}
+                                style={{ borderLeft: `5px solid ${card.color}` }}
+                                draggable
+                                onDragStart={(e) => handleDragStart(e, card)}
+                                >
+                                {card.title}
                                 </div>
                             ))}
-                        </div>
+                            </div>   
                         
                             
                     </div>
                         
                     <div className="in-progress-column">
                         <h5 className="in-progress-header">In Progress</h5> 
-                        <div className="in-progress-cards">
-                            {inProgressCards.map(card => (
-                                <div key={card.id} className={`card ${card.color}-card`}
-                                    style={{ borderLeft: `5px solid ${card.color}` }}
-                                     draggable
-                                    onDragStart={(e) => handleDragStart(e, card)}
-                                    onDragOver={handleDragOver}
-                                    onDrop={(e) => handleDrop(e, 'in-progress')}
-                                    onHandleNewCardChange={handleNewCardChange}
-                                    onHandleAddCard={() => handleAddCard('todo')}>
-                                    
-                                    {card.title}
-                                </div>
-                            ))}
-                            
-                        </div>
+                        <div className="in-progress-cards"
+                            onDragOver={handleDragOver}
+                            onDrop={(e) => handleDrop(e, 'inProgress')}
+                            >
+                                {inProgressCards.map(card => (
+                                    <div key={card.id} className={`card ${card.color}-card`}
+                                        style={{ borderLeft: `5px solid ${card.color}` }}
+                                        draggable
+                                        onDragStart={(e) => handleDragStart(e, card)}
+                                        onDragOver={handleDragOver}
+                                        onDrop={(e) => handleDrop(e, 'inProgress')}
+                                        onHandleNewCardChange={handleNewCardChange}
+                                        onHandleAddCard={() => handleAddCard('todo')}>
+                                        {card.title}
+                                    </div>
+                                ))}
+                            </div>
                     </div>    
 
                     <div className="review-column">
                         <h5 className="review-header">Review</h5> 
-                        <div className="review-cards">
-                             {reviewCards.map(card => (
+                        <div className="review-cards"
+                            onDragOver={handleDragOver}
+                            onDrop={(e) => handleDrop(e, 'review')}
+                            >
+                            {reviewCards.map(card => (
                                 <div key={card.id} className={`card ${card.color}-card`}
                                     style={{ borderLeft: `5px solid ${card.color}` }}
-                                     draggable
+                                    draggable
                                     onDragStart={(e) => handleDragStart(e, card)}
                                     onDragOver={handleDragOver}
                                     onDrop={(e) => handleDrop(e, 'review')}
@@ -167,17 +172,19 @@ function Kanban() {
                                     {card.title}
                                 </div>
                             ))}
-                            
                         </div>
                     </div>      
 
                     <div className="complete-column">
                         <h5 className="complete-header">Complete</h5>
-                        <div className="complete-cards">
-                             {completeCards.map(card => (
+                        <div className="complete-cards"
+                            onDragOver={handleDragOver}
+                            onDrop={(e) => handleDrop(e, 'complete')}
+                            >
+                            {completeCards.map(card => (
                                 <div key={card.id} className={`card ${card.color}-card`}
                                     style={{ borderLeft: `5px solid ${card.color}` }}
-                                     draggable
+                                    draggable
                                     onDragStart={(e) => handleDragStart(e, card)}
                                     onDragOver={handleDragOver}
                                     onDrop={(e) => handleDrop(e, 'complete')}
@@ -186,9 +193,8 @@ function Kanban() {
                                     {card.title}
                                 </div>
                             ))}
-                           
-                        </div>
-                    </div>
+                    </div> 
+            </div>
             </div>
 
         </div>
