@@ -75,7 +75,7 @@
 }
 
 
-.new-project {
+.new-project-btn {
     padding: 5px;
     width: 100px;
     border-radius: 10px;
@@ -96,7 +96,7 @@
     height: 25px;
     }
 
-.new-project:hover {
+.new-project-btn:hover {
     background-color: #fff;
     background-image: linear-gradient(to right, #6265F7,#A24DEC);
     -webkit-background-clip: text; /* For WebKit browsers */
@@ -114,6 +114,7 @@
         box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
 
 }
+
 
 /* Navgivation */
 .navigation-bkg {
@@ -228,4 +229,95 @@
     z-index: 2;
 }
 
+.form-group {
+  margin-bottom: 1rem;
+}
 
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'Inter';
+  color: #686666;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #CECECE;
+  border-radius: 4px;
+  font-family: 'Inter';
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.new-project-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;  /* Change from absolute to fixed */
+    z-index: 9999;   /* Increase z-index */
+    top: 50%;        /* Center vertically */
+    left: 50%;       /* Center horizontally */
+    transform: translate(-50%, -50%); /* Perfect centering */
+    width: 350px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    z-index: 9999;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.portal-container {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100vw;
+    height: 80vh;
+    align-items: center;
+  justify-content: center;
+    z-index: 10000;
+}
+
+.form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.submit-project-btn, .cancel-project-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-project-btn {
+  background: linear-gradient(to right, #6265F7, #A24DEC);
+  color: white;
+  border: none;
+}
+
+.cancel-project-btn {
+  background: white;
+  border: 1px solid #CECECE;
+  color: #686666;
+}

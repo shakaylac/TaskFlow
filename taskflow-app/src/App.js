@@ -1,5 +1,6 @@
 
 
+import { createPortal } from 'react-dom';
 import './CSS/App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
@@ -31,6 +32,92 @@ function App() {
     }
   }, []);
 
+  /* New Project Button */
+  const [newProject, setNewProject] = useState('');
+  const [showNewProjectForm, setShowNewProjectForm] = useState(false);
+  const [formProjectName, setFormProjectName] = useState('');
+  const [formProjectDescription, setFormProjectDescription] = useState('');
+  const [formDueDate, setFormDueDate] = useState('');
+  const [formPrioty, setFormPriorty] = useState('green');
+  const [formUsername, setFormUsername] = useState('');
+  const [formUserEmail, setFormUserEmail] = useState('');
+  const [formPassword, setFormPassword] = useState('');
+
+  const handleNewProjectClick = () => {
+    setShowNewProjectForm(true);
+  };
+
+  const handleNewProjectChange = (e) => {
+    setNewProject(e.target.value);
+  };
+
+  const handleNewProjectSubmit = (e) => {
+    e.preventDefault();
+    if (newProject.trim() !== '') {
+      alert(`New project created: ${newProject}`);
+      setNewProject('');
+      setShowNewProjectForm(false);
+    } else {
+      alert('Please enter a project name.');
+    }
+  };
+
+
+  const [newProjectForm, setNewProjectForm] = useState(null);
+  
+  useEffect(() => {
+    const newProjectForm = document.getElementById('new_project_form'); 
+    if (newProjectForm) {
+      newProjectForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        handleNewProjectSubmit(e);
+      });
+
+    }
+
+    
+
+      const newProjectSubmitButton = document.querySelector('.submit-project-btn');
+      if (newProjectSubmitButton) {}
+
+      const newProjectCancelButton = document.querySelector('.cancel-project-btn');
+      if (newProjectCancelButton) {}
+
+
+  }, []);
+  
+
+   
+    
+
+  /* User Name */
+  useEffect(() => { 
+    const storedName = localStorage.getItem('userName');
+    if (storedName) {
+      setUserName(`, ${storedName}!`);
+    }
+  }, []);
+  const handleUserNameChange = (e) => {
+    setUserName(`, ${e.target.value}!`);
+    localStorage.setItem('userName', e.target.value);
+  };
+
+  /* Settings */
+  const handleSettingsClick = () => { 
+    const newUserName = prompt('Enter your name:');
+    if (newUserName) {  
+      setUserName(`, ${newUserName}!`);
+      localStorage.setItem('userName', newUserName);
+    }
+  };
+  const handleInboxClick = () => {
+    alert('Inbox clicked!'); // Placeholder for inbox functionality
+  } 
+  
+
+
+
+
   /* Navigation */
 
       const [ activeView, setActiveView ] = useState('calendar');
@@ -58,10 +145,75 @@ function App() {
           <div className="container-btns">
             <button className="settings" id="settings"> <img src={settings} className='settings-icon' alt="settings" /></button>
             <button className="inbox" id="inbox">  <img src={mail} className='mail-icon' alt="mail" /></button>
-            <button className="new-project" id="new_project">+ New Project</button>
+            <button className="new-project-btn" id="new-project-btn" onClick={(handleNewProjectClick)}>+ New Project</button>
           </div>
         </header>
         <section className='navigation-bkg'>
+  
+           { showNewProjectForm && createPortal(
+            <div className="portal-container">
+              <div className="form-overlay" onClick={() => setShowNewProjectForm(false)} />
+            <form onSubmit={handleNewProjectSubmit} className="new-project-form">
+              <div className="form-group">
+                <label htmlFor="projectName">Project Name</label>
+                <input
+                  id="projectName"
+                  type="text"
+                  value={formProjectName}
+                  onChange={(e) => setFormProjectName(e.target.value)}
+                  placeholder="Enter project name"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="projectDescription">Description</label>
+                <textarea
+                  id="projectDescription"
+                  value={formProjectDescription}
+                  onChange={(e) => setFormProjectDescription(e.target.value)}
+                  placeholder="Enter project description"
+                />
+              </div>
+
+               <div className="form-group">
+            <label htmlFor="dueDate">Due Date</label>
+            <input
+              id="dueDate"
+              type="date"
+              value={formDueDate}
+              onChange={(e) => setFormDueDate(e.target.value)}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="priority">Priority</label>
+            <select
+              id="priority"
+              value={formPrioty}
+              onChange={(e) => setFormPriorty(e.target.value)}
+            >
+              <option value="green">Low</option>
+              <option value="orange">Medium</option>
+              <option value="red">High</option>
+            </select>
+          </div>
+
+                <div className="form-buttons">
+            <button type="submit" className="submit-project-btn">Create Project</button>
+            <button 
+              type="button" 
+              className="cancel-project-btn"
+              onClick={() => setShowNewProjectForm(false)}
+            > Cancel
+            </button>
+          </div>
+
+                  
+        </form>
+        </div>,
+        document.body
+      )}
+
           <div className='nav-btns'>
             <Link to="/calendar">
               <button  onClick={() => switchView('calendar')}
@@ -80,6 +232,7 @@ function App() {
           className={activeView === 'timetracking' ? 'active' : ''} style={getButtonStyle('timetracking')}><img src={alarm} className='alarm-icon' alt="timetracking" />Time Tracking</button>
             </Link>
           </div>
+         
         </section>
 
         <div className="teapot"></div>
@@ -98,6 +251,42 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
+
+//Code for User Signup and Login Form 
+
+/* <div className="form-group">
+              <label htmlFor="username">Username</label>  
+              <input
+                id="username"
+                type="text"
+                value={formUsername}
+                onChange={(e) => setFormUsername(e.target.value)}
+                placeholder="Enter username"
+              />
+            </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Email</label>  
+                <input
+                  id="email"
+                  type="email"
+                  value={formUserEmail}
+                  onChange={(e) => setFormUserEmail(e.target.value)}
+                  placeholder="Enter email" 
+                />
+              </div>
+
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    id="password"
+                    type="password"
+                    value={formPassword}
+                    onChange={(e) => setFormPassword(e.target.value)}
+                    placeholder="Enter password"  
+                  />
+                </div> 
+                */
