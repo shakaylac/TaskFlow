@@ -175,37 +175,43 @@ function App() {
                 />
               </div>
 
-               <div className="form-group">
-            <label htmlFor="dueDate">Due Date</label>
-            <input
-              id="dueDate"
-              type="date"
-              value={formDueDate}
-              onChange={(e) => setFormDueDate(e.target.value)}
-            />
-          </div>
+              <div className="form-dropdowns">
+                <div className="form-group">
+              <label htmlFor="dueDate">Due Date</label>
+              <input
+                id="dueDate"
+                type="date"
+                value={formDueDate}
+                onChange={(e) => setFormDueDate(e.target.value)}
+              />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="priority">Priority</label>
-            <select
-              id="priority"
-              value={formPrioty}
-              onChange={(e) => setFormPriorty(e.target.value)}
-            >
-              <option value="green">Low</option>
-              <option value="orange">Medium</option>
-              <option value="red">High</option>
-            </select>
+            <div className="form-group">
+              <label htmlFor="priority">Priority</label>
+              <select
+                id="priority"
+                value={formPrioty}
+                onChange={(e) => setFormPriorty(e.target.value)}
+              >
+                <option value="green">Low</option>
+                <option value="orange">Medium</option>
+                <option value="red">High</option>
+              </select>
+            </div>
           </div>
 
                 <div className="form-buttons">
-            <button type="submit" className="submit-project-btn">Create Project</button>
             <button 
               type="button" 
               className="cancel-project-btn"
               onClick={() => setShowNewProjectForm(false)}
-            > Cancel
-            </button>
+            > Cancel </button>
+
+                        <button 
+            type="submit" 
+            className="submit-project-btn"
+            >Create Project</button>
+            
           </div>
 
                   

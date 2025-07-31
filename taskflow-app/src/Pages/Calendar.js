@@ -4,64 +4,66 @@ import arrow_right from '../assets/arrow_right.svg';
 import arrow_left from '../assets/arrow_left.svg';
 
 function Calendar() {
-  const [month, setMonth] = useState('');
-  const [year, setYear] = useState('');
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [days, setDays] = useState([]);
 
   useEffect(() => {
-    const date = new Date();
-    const currentMonth = date.getMonth();
-    const currentYear = date.getFullYear();
-
-    const monthNames = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-
-    setMonth(monthNames[currentMonth]);
-    setYear(currentYear);
-
-    const generatedDays = generateCalendarDays(new Date(currentYear, currentMonth));
+    const generatedDays = generateCalendarDays(currentDate);
     setDays(generatedDays);
-  }, []);
+  }, [currentDate]);
+
+  function isSameDate(date1, date2) {
+    return (
+      date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate()
+    );
+  }
 
   function generateCalendarDays(date) {
-    const startDate = new Date(date.getFullYear(), date.getMonth(), 1);
-    const firstDayIndex = startDate.getDay();
-    const currentDays = [];
+    const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+    const firstDayIndex = firstDayOfMonth.getDay();
+    const calendarStartDate = new Date(firstDayOfMonth);
+    calendarStartDate.setDate(firstDayOfMonth.getDate() - firstDayIndex);
 
-    // Start from the Sunday before (or same day if Sunday)
-    const gridStartDate = new Date(startDate);
-    gridStartDate.setDate(startDate.getDate() - firstDayIndex);
-
+    const daysArray = [];
     for (let i = 0; i < 35; i++) {
-      const day = new Date(gridStartDate);
-      day.setDate(gridStartDate.getDate() + i);
+      const day = new Date(calendarStartDate);
+      day.setDate(calendarStartDate.getDate() + i);
 
-      currentDays.push({
+      daysArray.push({
         date: day,
         currentMonth: day.getMonth() === date.getMonth(),
         isToday: isSameDate(day, new Date())
       });
     }
 
-    return currentDays;
+    return daysArray;
   }
 
-  function isSameDate(date1, date2) {
-    return date1.getFullYear() === date2.getFullYear() &&
-           date1.getMonth() === date2.getMonth() &&
-           date1.getDate() === date2.getDate();
+  function changeMonth(offset) {
+    const newDate = new Date(currentDate);
+    newDate.setMonth(currentDate.getMonth() + offset);
+    setCurrentDate(newDate);
   }
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
 
   return (
     <section className='calendar-com'>
       <div className='calendar-nav'>
-        <button className='previous-btn'><img src={arrow_left} className='arrow-left' alt="previous" /></button>
+        <button className='previous-btn' onClick={() => changeMonth(-1)}>
+          <img src={arrow_left} className='arrow-left' alt="previous" />
+        </button>
         <p className='month' style={{ fontFamily: 'Inter', color: '#696868', fontSize: '15px', fontWeight: 'bold' }}>
-          {month} {year}
+          {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
         </p>
-        <button className='next-btn'><img src={arrow_right} className='arrow-right' alt="next" /></button>
+        <button className='next-btn' onClick={() => changeMonth(1)}>
+          <img src={arrow_right} className='arrow-right' alt="next" />
+        </button>
       </div>
 
       <div className='calendar-body'>
@@ -91,3 +93,4 @@ function Calendar() {
 }
 
 export default Calendar;
+
