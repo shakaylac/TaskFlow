@@ -1,5 +1,3 @@
-
-
 import { createPortal } from 'react-dom';
 import './CSS/App.css';
 import React, { useEffect, useState } from 'react';
@@ -74,9 +72,6 @@ function App() {
       });
 
     }
-
-    
-
       const newProjectSubmitButton = document.querySelector('.submit-project-btn');
       if (newProjectSubmitButton) {}
 
@@ -114,10 +109,6 @@ function App() {
     alert('Inbox clicked!'); // Placeholder for inbox functionality
   } 
   
-
-
-
-
   /* Navigation */
 
       const [ activeView, setActiveView ] = useState('calendar');

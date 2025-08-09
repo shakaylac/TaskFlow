@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import '../CSS/Calendar.css';
 import React, { useEffect, useState } from 'react';
 import arrow_right from '../assets/arrow_right.svg';
@@ -52,6 +53,49 @@ function Calendar() {
     "July", "August", "September", "October", "November", "December"
   ];
 
+  /* New Event Form */
+  const [newEvent, setNewEvent] = useState('');
+  const [showNewEventForm, setShowNewEventForm] = useState(false);
+  const [selectDate, setSelectedDate] = useState(null);
+  const [formEventName, setFormEventName] = useState('');
+  const [formTime, setFormTime] = useState('');
+  const [formEventDescription, setFormEventDescription] = useState('');
+  const [formDueDate, setFormDueDate] = useState('');
+  const [formPrioty, setFormPriorty] = useState('green');
+
+  function handleNewEventClick() {
+    setShowNewEventForm(true);
+  };
+
+  const handleDayClick = (date) => {
+    setSelectedDate(date);
+    setShowNewEventForm(true);
+  };
+
+  const handleNewEventChange = (e) => {
+    setNewEvent(e.target.value);
+  };
+
+  const handleNewEventSubmit = (e) => {
+    e.preventDefault();
+    if (formEventName.trim() !== '') {
+      alert(`New project created: ${formEventName} for ${setSelectedDate.toLocaleDateString()}`);
+      setFormEventName('');
+      setFormEventDescription('');
+      setShowNewEventForm(false);
+      setSelectedDate(null);
+    } else {
+      alert('Please enter a project name.');
+    }
+  };
+
+  const [newEventForm, setNewEventForm] = useState(null);
+
+  const handleTimeChange = (e) => {
+    setFormTime(e.target.value);
+  };
+
+
   return (
     <section className='calendar-com'>
       <div className='calendar-nav'>
@@ -82,12 +126,81 @@ function Calendar() {
             <div
               key={index}
               className={`calendar-day ${dayObj.currentMonth ? 'current' : 'other'} ${dayObj.isToday ? 'today' : ''}`}
+              onClick={() => handleDayClick(dayObj.date)}
             >
               {dayObj.date.getDate()}
             </div>
           ))}
         </div>
       </div>
+
+      {showNewEventForm && createPortal(
+        <div className='portal-container'>
+          <div className='form-overlay' onClick={() => setShowNewEventForm(false)} />
+            <form onSubmit={handleNewEventSubmit} className="new-event-form">
+              <h3>New Event for {selectDate?.toLocaleDateString()}</h3>
+              <div className="form-group">
+                <label htmlFor='eventName'>Event Name</label>
+                <input
+                  id="eventName"
+                  type='text'
+                  value={formEventName}
+                  onChange={(e) => setFormEventName(e.target.value)}
+                  placeholder="Enter event Name"
+                  />
+              </div>
+
+               <div className="form-group">
+              <label htmlFor="eventDescription">Event Description</label>
+              <textarea
+                id="eventDescription"
+                value={formEventDescription}
+                onChange={(e) => setFormEventDescription(e.target.value)}
+                placeholder="Enter event description" 
+              />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor="Set Time"> Set Time</label>
+              <input
+                type='time'
+                id="timeInput"
+                value={formTime}
+                onChange={handleTimeChange}
+                />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="priority">Priority</label>
+              <select
+                id="priority"
+                value={formPrioty}
+                onChange={(e) => setFormPriorty(e.target.value)}
+                >
+                <option value="green">Low</option>
+                <option value="orange">Medium</option>
+                <option value="red">High</option>
+              </select>
+            </div>
+
+             <div className="form-buttons">
+              <button 
+                type="button" 
+                className="cancel-event-btn"
+                onClick={() => setShowNewEventForm(false)}
+              >
+                Cancel
+              </button>
+              <button type="submit" className="submit-event-btn">
+                Create Event
+              </button>
+            </div>
+
+            </form>
+        </div>,
+        document.body
+      )}
+
     </section>
   );
 }
