@@ -11,9 +11,15 @@ function Projects() {
                         <div className="project-header">
                             <p>Cora Design </p>
                             <div className="members">
-                                <div className="circle-1"></div>
-                                <div className="circle-2"></div>
-                                <div className="circle-3"></div>
+                                <div className="circle-1">
+                                    <div className='initials'>JC</div>
+                                </div>
+                                <div className="circle-2">
+                                    <div className='initials'>KT</div>
+                                </div>
+                                <div className="circle-3">
+                                    <div className='initials'>RM</div>
+                                </div>
                             </div>
                         </div>
                         <div className="progress-bar">
@@ -24,9 +30,15 @@ function Projects() {
                             <div className="project-header">
                                 <p>Cora Marketing</p>
                                 <div className="members">
-                                    <div className="circle-1"></div>
-                                    <div className="circle-2"></div>
-                                    <div className="circle-3"></div>
+                                    <div className="circle-1">
+                                        <div className='initials'>EP</div>
+                                    </div>
+                                    <div className="circle-2">
+                                        <div className='initials'>MS</div>
+                                    </div>
+                                    <div className="circle-3">
+                                        <div className='initials'>BS</div>
+                                    </div>
                                 </div>
                             </div>
                         <div className="progress-bar">
@@ -37,9 +49,15 @@ function Projects() {
                         <div className="project-header">
                             <p>Cora Research</p>
                             <div className="members">
-                                <div className="circle-1"></div>
-                                <div className="circle-2"></div>
-                                <div className="circle-3"></div>
+                                <div className="circle-1">
+                                    <div className='initials'>AJ</div>
+                                </div>
+                                <div className="circle-2">
+                                    <div className='initials'>KC</div>
+                                </div>
+                                <div className="circle-3">
+                                    <div className='initials'>LM</div>
+                                </div>
                             </div>
                         </div>
                         <div className="progress-bar">
@@ -50,8 +68,21 @@ function Projects() {
 
                 <div className='project-stats'>
                     <div className='link-container'> 
-                        <div className='link-header'></div>
+                        <div className='link-header'>
+                            <p>Documents</p>
+                            <a href="#"> + Add</a>
+                        </div>
                         <div className='link-body'></div>
+                            <div className='link-item'>
+                                <a href="#">StyleSheet_Mayden.pdf</a>
+                            </div>
+                            <div className='link-item'>
+                                <a href="#">Brief_Mayden.pdf</a>
+                            </div>
+                            <div className='link-item'>
+                                <a href="#">Presentation_Mayden.pdf</a>
+                            </div>
+                            
 
                     </div>
 

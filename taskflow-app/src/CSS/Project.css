@@ -111,6 +111,15 @@
       background-color: #F59226;
   }
 
+  .initials {
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
  .cora-design > p,
  .cora-marketing > p,
  .cora-research > p {
@@ -182,7 +191,35 @@
  }
 
  .link-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  border-bottom: 1px solid #CECECE;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+ }
 
+ .link-header > p {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Inter;
+  color: #000;
+  margin-left: 2px;
+ }
+
+ .link-header > a {
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+  margin-right: 5px;
+ }
+
+ .link-item > a{
+  font-size: 1em;
+  color: #000;
+  text-decoration: none;
+  margin-right: 5px;
  }
 
  .inbox-container {
