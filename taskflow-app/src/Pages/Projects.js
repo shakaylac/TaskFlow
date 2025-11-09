@@ -1,9 +1,45 @@
 import '../CSS/Project.css';
 import editIcon from '../assets/edit.svg';
 import deleteIcon from '../assets/delete.svg';
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
+
+
 
 
 function Projects() {
+
+const [showInbox, setShowInbox] = useState(false);
+const [deletedFiles, setDeletedFiles] = useState([]);
+
+function handleOpenInbox() {
+    setShowInbox(true);
+}
+
+
+ {showInbox && createPortal(
+        <div className='portal-container'>
+          <div className='form-overlay' onClick={() => setShowInbox(false)} />
+            <div onClick={handleOpenInbox} className="inbox-form">
+              <h3>Inbox</h3>
+                <div className='inbox-body-portal'>
+                  <p>Your messages will appear here.</p>
+                </div>  
+            </div>
+        </div>,
+        document.body
+      )}
+
+
+const handleDeleteFile = (fileName) => {
+    setDeletedFiles([...deletedFiles, fileName]);
+}   
+
+const handleRestoreFile = (fileName) => {
+    setDeletedFiles(deletedFiles.filter(file => file !== fileName));
+}
+
+
     return( 
         <>
         <div className='Projects'>
@@ -72,23 +108,23 @@ function Projects() {
                     <div className='link-container'> 
                         <div className='link-header'>
                             <p>Documents</p>
-                            <a href="#"> + Add</a>
+                            <button className='add-doc' id='add-doc'> + Add</button>
                         </div>
                         <div className='link-body'></div>
                             <div className='link-item'>
                                 <a href="#">StyleSheet_Mayden.pdf</a>
                                 <button className='edit'><img src={editIcon} /></button>
-                                <button className='delete'><img src={deleteIcon} /></button>
+                                <button className='delete' onClick={() => handleDeleteFile("StyleSheet_Mayden.pdf")}><img src={deleteIcon} /></button>
                             </div>
                             <div className='link-item'>
                                 <a href="#">Brief_Mayden.pdf</a>
                                 <button className='edit'><img src={editIcon} /></button>
-                                <button className='delete'><img src={deleteIcon} /></button>
+                                <button className='delete' onClick={() => handleDeleteFile("Brief_Mayden.pdf")}><img src={deleteIcon} /></button>
                             </div>
                             <div className='link-item'>
                                 <a href="#">Presentation_Mayden.pdf</a>
                                 <button className='edit'><img src={editIcon} /></button>
-                                <button className='delete'><img src={deleteIcon} /></button>
+                                <button className='delete' onClick={() => handleDeleteFile("Presentation_Mayden.pdf")}><img src={deleteIcon} /></button>
                             </div>
                             
 

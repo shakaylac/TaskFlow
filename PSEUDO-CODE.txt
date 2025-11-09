@@ -1,0 +1,6 @@
+
+When day is clicked create form for schedule or project creation.
+
+When form is filled (required for submission) and submit it clicked, append indicator to specific day.
+
+When hover display schedule is schedule exist. 

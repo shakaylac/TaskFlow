@@ -122,8 +122,8 @@ function App() {
        const gradient = 'linear-gradient(to right, #6265F7, #A24DEC)';
   const getButtonStyle = (view) => (
     activeView === view
-      ? { background: gradient, color: 'white', fontWeight: 'bold', fontFamily: 'Inter', width: '610px', height: '42px', border: 'none' }
-      : { background: 'white', color: '#808080', fontFamily: 'Inter', width: '610px', height: '42px', border: 'solid 1.5px #CECECE' }
+      ? { background: gradient, color: 'white', fontWeight: 'bold', fontFamily: 'system-ui', width: '610px', height: '42px', border: 'none' }
+      : { background: 'white', color: '#808080', fontFamily: 'system-ui', width: '610px', height: '42px', border: 'solid 1.5px #CECECE' }
      );
 
   return (
@@ -131,8 +131,8 @@ function App() {
       <div>
         <header className="header">
           <h2 className="logo">TaskFlow</h2>
-          <p style={{ fontFamily: 'Inter', color: '#686666', fontSize: '20PX' }}>{greeting}</p>
-          <p style={{ fontFamily: 'Inter', color: '#686666', fontSize: '20PX' }}>{userName}</p>
+          <p style={{ fontFamily: 'system-ui', color: '#686666', fontSize: '20PX' }}>{greeting}</p>
+          <p style={{ fontFamily: 'system-ui', color: '#686666', fontSize: '20PX' }}>{userName}</p>
           <div className="container-btns">
             <button className="settings" id="settings"> <img src={settings} className='settings-icon' alt="settings" /></button>
             <button className="inbox" id="inbox">  <img src={mail} className='mail-icon' alt="mail" /></button>

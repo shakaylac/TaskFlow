@@ -4,6 +4,62 @@ import React, { useEffect, useState } from 'react';
 import arrow_right from '../assets/arrow_right.svg';
 import arrow_left from '../assets/arrow_left.svg';
 
+function ShowHoverForm() {
+  const [ showPopup, setShowPopup ] = useState(false);
+
+}
+
+function HoverForm() {
+  return(
+    <div className="popup-overlay">
+      <div className="popup-content">
+        <h3></h3>
+        <form>
+          <div>
+            <input type="radio" id="project" name="add" value="proejct" />
+            <label for="Create a Project">Create a Project</label>
+          </div>
+
+          <div>
+            <input type="radio" id="task" name="add" value="task" />
+            <label for="create task"> Create Task</label>
+          </div>
+
+          <div>
+            <input type="radio" id="event" name="add" value="event" />
+            <label for="create event"> Create event</label>
+          </div>
+
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required />
+
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" required />
+
+          <label for="time">TIme</label>
+          <input type="time" id="time" name="time" />
+
+          <label for="description"></label>
+          <textarea></textarea>
+
+          <label>Choose Color</label>
+
+          <div>
+          <input type="radio" id="color" name="color" value="blue" checked />
+          </div>
+
+<div>
+          <input type="radio" id="color" name="color" value="blue" checked />
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  )
+}
+
 function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [days, setDays] = useState([]);
@@ -102,7 +158,7 @@ function Calendar() {
         <button className='previous-btn' onClick={() => changeMonth(-1)}>
           <img src={arrow_left} className='arrow-left' alt="previous" />
         </button>
-        <p className='month' style={{ fontFamily: 'Inter', color: '#696868', fontSize: '15px', fontWeight: 'bold' }}>
+        <p className='month' style={{ fontFamily: 'system-ui', color: '#696868', fontSize: '15px', fontWeight: 'bold' }}>
           {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
         </p>
         <button className='next-btn' onClick={() => changeMonth(1)}>
